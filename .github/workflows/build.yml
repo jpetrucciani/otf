@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -66,7 +66,7 @@ jobs:
     needs: [build, release-please]
     if: needs.release-please.outputs.release_created
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - run: git fetch --force --tags
@@ -86,10 +86,10 @@ jobs:
   docs:
     # only publish docs for new releases
     if: needs.release-please.outputs.release_created
-    needs: [build,release-please]
+    needs: [build, release-please]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/setup-python@v4
@@ -107,11 +107,11 @@ jobs:
           mike set-default latest -p
   charts:
     # only create otf-charts PR for new releases
-    needs: [release-please,release]
+    needs: [release-please, release]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.OTF_CHARTS_TOKEN }}
           repository: leg100/otf-charts
@@ -139,6 +139,6 @@ jobs:
           destination_repository: leg100/otf-charts
           source_branch: new-otf-version-${{ needs.release-please.outputs.tag_name }}
           destination_branch: master
-          pr_title: "New OTF version: ${{ needs.release-please.outputs.tag_name }}"
+          pr_title: 'New OTF version: ${{ needs.release-please.outputs.tag_name }}'
           github_token: ${{ secrets.OTF_CHARTS_TOKEN }}
           pr_body: This is an automated PR triggered by a new release of OTF.

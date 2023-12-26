@@ -1,51 +1,51 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
-    -   id: check-json
-    -   id: check-yaml
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
+      - id: check-json
+      - id: check-yaml
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
         exclude: '.tfstate|run|testdata'
--   repo: local
+  - repo: local
     hooks:
-    -   id: make-actions
+      - id: make-actions
         name: make actions
         entry: make actions
         types: [go]
-        language: "golang"
+        language: 'golang'
         require_serial: true
         pass_filenames: false
-        description: "Runs `make actions`"
-    -   id: make-vet
+        description: 'Runs `make actions`'
+      - id: make-vet
         name: make vet
         entry: make vet
         types: [go]
-        language: "golang"
+        language: 'golang'
         require_serial: true
         pass_filenames: false
-        description: "Runs `make vet`"
-    -   id: make-fmt
+        description: 'Runs `make vet`'
+      - id: make-fmt
         name: make fmt
         entry: make fmt
         types: [go]
-        language: "golang"
+        language: 'golang'
         require_serial: true
         pass_filenames: false
-        description: "Runs `make fmt`"
-    -   id: make-lint
+        description: 'Runs `make fmt`'
+      - id: make-lint
         name: make lint
         entry: make lint
-        language: "golang"
+        language: 'golang'
         types: [go]
         require_serial: true
         pass_filenames: false
-        description: "Runs `make lint`"
-    -   id: make-tailwind
+        description: 'Runs `make lint`'
+      - id: make-tailwind
         name: make tailwind
         entry: make tailwind
-        language: "system"
-        types: [css,gotmpl]
+        language: 'system'
+        types: [css, gotmpl]
         require_serial: true
         pass_filenames: false
-        description: "Runs `make tailwind`"
+        description: 'Runs `make tailwind`'

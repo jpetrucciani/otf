@@ -1,14 +1,14 @@
 VERSION = $(shell git describe --tags --dirty --always)
 GIT_COMMIT = $(shell git rev-parse HEAD)
 RANDOM_SUFFIX := $(shell cat /dev/urandom | tr -dc 'a-z0-9' | head -c5)
-IMAGE_NAME = leg100/otfd
+IMAGE_NAME = jpetrucciani/otfd
 IMAGE_TAG ?= $(VERSION)-$(RANDOM_SUFFIX)
 DBSTRING=postgres:///otf
 LD_FLAGS = " \
     -s -w \
-	-X 'github.com/leg100/otf/internal.Version=$(VERSION)' \
-	-X 'github.com/leg100/otf/internal.Commit=$(GIT_COMMIT)'	\
-	-X 'github.com/leg100/otf/internal.Built=$(shell date +%s)'	\
+	-X 'github.com/jpetrucciani/otf/internal.Version=$(VERSION)' \
+	-X 'github.com/jpetrucciani/otf/internal.Commit=$(GIT_COMMIT)'	\
+	-X 'github.com/jpetrucciani/otf/internal.Built=$(shell date +%s)'	\
 	" \
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
@@ -55,7 +55,7 @@ install-latest-release:
 	{ \
 	set -ex ;\
 	ZIP_FILE=$$(mktemp) ;\
-	RELEASE_URL=$$(curl -s https://api.github.com/repos/leg100/otf/releases/latest | \
+	RELEASE_URL=$$(curl -s https://api.github.com/repos/jpetrucciani/otf/releases/latest | \
 		jq -r '.assets[] | select(.name | test("otfd_.*_linux_amd64.zip$$")) | .browser_download_url') ;\
 	curl -Lo $$ZIP_FILE $$RELEASE_URL ;\
 	unzip -o -d $(GOBIN) $$ZIP_FILE otfd ;\
@@ -110,7 +110,7 @@ install-pre-commit:
 # Install sql code generator
 .PHONY: install-pggen
 install-pggen:
-	@sh -c "which pggen > /dev/null || go install github.com/leg100/pggen/cmd/pggen@latest"
+	@sh -c "which pggen > /dev/null || go install github.com/jpetrucciani/pggen/cmd/pggen@latest"
 
 # Generate sql code
 .PHONY: sql
