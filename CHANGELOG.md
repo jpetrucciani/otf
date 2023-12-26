@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.3.0](https://github.com/jpetrucciani/otf/compare/v0.2.4...v0.3.0) (2023-12-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* fork into `jpetrucciani/otf`
+
+### Features
+
+* update run status to have a yellow color when planned but not yet applied/discarded. update padding/border radius ([#3](https://github.com/jpetrucciani/otf/pull/3)) 
+
+### Bug Fixes
+
+* check for TagsRegex being empty before throwing an error ([#1](https://github.com/jpetrucciani/otf/pull/1))
+
 ## [0.2.4](https://github.com/leg100/otf/compare/v0.2.3...v0.2.4) (2023-12-16)
 
 
