@@ -29,8 +29,6 @@ modd.conf
 .terraform
 .terraform.lock.hcl
 main.tf
-# direnv
-.envrc
 # Created by https://www.gitignore.io/api/go,vim,emacs,visualstudiocode
 ### Emacs ###
 # -*- mode: gitignore; -*-
