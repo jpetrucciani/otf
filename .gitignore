@@ -104,3 +104,7 @@ Session.vim
 .history
 # allow anything under testdata
 !**/testdata/**
+
+# nix
+.direnv
+result*
