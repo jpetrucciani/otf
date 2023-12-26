@@ -4,14 +4,14 @@ Code contributions are welcome.
 
 ## Setup your machine
 
-* Clone the repo:
+- Clone the repo:
 
 ```
-git clone git@github.com:leg100/otf.git
+git clone git@github.com:jpetrucciani/otf.git
 ```
 
-* Install [Go](https://go.dev/doc/install).
-* Install [PostgreSQL](https://www.postgresql.org/download/) (optional).
+- Install [Go](https://go.dev/doc/install).
+- Install [PostgreSQL](https://www.postgresql.org/download/) (optional).
 
 ## Documentation
 
@@ -45,10 +45,10 @@ The database schema is migrated using [goose](https://github.com/pressly/goose).
 
 If you're developing a SQL migration you may want to migrate the database manually. Use the `make` tasks to assist you:
 
-* `make migrate`
-* `make migrate-redo`
-* `make migrate-rollback`
-* `make migrate-status`
+- `make migrate`
+- `make migrate-redo`
+- `make migrate-rollback`
+- `make migrate-status`
 
 ## SQL queries
 
@@ -56,13 +56,13 @@ SQL queries are handwritten in `./sql/queries` and turned into Go using [pggen](
 
 After you make changes to the queries run the following make task to invoke `pggen`:
 
-* `make sql`
+- `make sql`
 
 ## HTML path helpers
 
 Rails-style path helpers are generated using `go generate`. The path specifications are maintained in `./http/html/paths/gen.go`. After making changes to the specs run the following make task to generate the helpers:
 
-* `make paths`
+- `make paths`
 
 ## Web development
 
@@ -70,23 +70,23 @@ If you're making changes to web templates then you may want to enable [developer
 
 OTF uses [Tailwind CSS](https://tailwindcss.com/) to generate CSS classes. Run the following make task to generate the CSS:
 
-* `make tailwind`
+- `make tailwind`
 
 !!! note
-    To install tailwind first ensure you've installed `npm` and then run `npm install -D tailwindcss`
+To install tailwind first ensure you've installed `npm` and then run `npm install -D tailwindcss`
 
 ## Developer tooling
 
 [modd](https://github.com/cortesi/modd) is recommended to automate development tasks:
 
-* Automatically restart `otfd` whenever changes are made to code.
-* Automatically generate Go code whenever SQL queries are updated.
-* Automatically generate path helpers whenever path specifications are updated.
+- Automatically restart `otfd` whenever changes are made to code.
+- Automatically generate Go code whenever SQL queries are updated.
+- Automatically generate path helpers whenever path specifications are updated.
 
 A `modd.conf` is included in the OTF repository. Once you've installed `modd`, run it from the root of the repository and it'll perform the above tasks.
 
 The following make task runs not only `modd` but watches for changes to Tailwind CSS classes (see above) and generates CSS:
 
-* `make watch -j`
+- `make watch -j`
 
 The `-j` flag permits both `modd` and the tailwind watcher to run in parallel.

@@ -2,7 +2,7 @@
 
 These steps will get you started with running `otfd` on your local system.
 
-Download a [release](https://github.com/leg100/otf/releases) of the server component, `otfd`. The release is a zip file. Extract the `otfd` binary to your current directory.
+Download a [release](https://github.com/jpetrucciani/otf/releases) of the server component, `otfd`. The release is a zip file. Extract the `otfd` binary to your current directory.
 
 Ensure you have access to a postgres server. `otfd` by default assumes postgres is running locally, accessible via a domain socket in `/var/run/postgresql`, and defaults to using a database named `otf`. You need to create the database first:
 
@@ -22,7 +22,7 @@ nt=database
 ```
 
 !!! note
-    The secret must be a hex-encoded 16-byte array
+The secret must be a hex-encoded 16-byte array
 
 You have now successfully installed `otfd` and confirmed you can start `otfd` with minimal configuration. Proceed to create your first organization.
 
@@ -46,7 +46,7 @@ Go to **organizations > New Organization**. Give the organization a name and cre
 #### Run Terraform
 
 !!! Note
-    The terraform CLI will be connecting to the server and it expects to make a verified SSL connection. Therefore we need to configure SSL first.
+The terraform CLI will be connecting to the server and it expects to make a verified SSL connection. Therefore we need to configure SSL first.
 
 Generate a self-signed SSL certificate and key:
 

@@ -2,7 +2,7 @@
 
 `otf` is the CLI for OTF.
 
-Download a [release](https://github.com/leg100/otf/releases). Ensure you select the client component, `otf`. The release is a zip file. Extract the `otf` binary to a directory in your system PATH.
+Download a [release](https://github.com/jpetrucciani/otf/releases). Ensure you select the client component, `otf`. The release is a zip file. Extract the `otf` binary to a directory in your system PATH.
 
 Run `otf` with no arguments to receive usage instructions:
 
