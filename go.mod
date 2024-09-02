@@ -1,6 +1,6 @@
 module github.com/leg100/otf
 
-go 1.21
+go 1.22
 
 require (
 	cloud.google.com/go/pubsub v1.30.1
