@@ -1,8 +1,8 @@
 { pkgs ? import
     (fetchTarball {
-      name = "jpetrucciani-2023-12-26";
-      url = "https://github.com/jpetrucciani/nix/archive/f3fb52047050d95a4a1da11a6ee40e03adc311e4.tar.gz";
-      sha256 = "00iprklv9wxgra4ij9947njjgbmrks2hgq25y0s4ym3jrx0wrw51";
+      name = "jpetrucciani-2024-09-02";
+      url = "https://github.com/jpetrucciani/nix/archive/6c81869b06de00477f4c350d46c007e14fff21ff.tar.gz";
+      sha256 = "1s8kp53hnv9zf61xsx6b9n5vm7iy74khj1dx8293y6282zrkihhg";
     })
     { }
 }:
@@ -13,7 +13,7 @@ let
     cli = [
       coreutils
       nixpkgs-fmt
-      nodejs_20
+      nodejs_22
     ];
     go = [
       go
